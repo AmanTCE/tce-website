@@ -14,6 +14,7 @@ import { ArrowRight, ArrowUpRight } from "@/components/Arrow";
 import { servicePages, getServicePage } from "@/content/servicePages";
 import { coreServices, growthCapabilities } from "@/content/services";
 import { areas } from "@/content/areas";
+import { dubaiPageFor } from "@/content/dubai";
 import { pageMetadata } from "@/lib/seo";
 import { breadcrumbs, faqPage, graph, service, webPage } from "@/lib/schema";
 
@@ -43,6 +44,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     { name: s.name, path },
   ];
   const others = servicePages.filter((o) => o.slug !== s.slug);
+  const dubaiPage = dubaiPageFor(s.slug);
 
   return (
     <main id="main" data-hero="light" data-page="services">
@@ -176,7 +178,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <ul className="grid gap-x-8 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
             {areas.map((a) => (
               <li key={a.slug} className="border-b border-ink/15">
-                <SmartLink href={`/uae/${a.slug}`} className="group flex min-h-[56px] items-center justify-between gap-4 py-3 transition-colors hover:text-blue">
+                <SmartLink href={a.slug === "dubai" && dubaiPage ? `/dubai/${dubaiPage.slug}` : `/uae/${a.slug}`} className="group flex min-h-[56px] items-center justify-between gap-4 py-3 transition-colors hover:text-blue">
                   <span>
                     {s.name} in {a.name}
                   </span>

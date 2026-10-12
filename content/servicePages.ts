@@ -42,7 +42,7 @@ export const servicePages: ServicePage[] = [
     name: "Video Production",
     summary: "Brand films, commercials, product videos, corporate shoots, events and reels.",
     h1: "Video production & creative filmmaking in the UAE",
-    metaTitle: "Video Production Company in Dubai & the UAE",
+    metaTitle: "Video Production & Creative Filmmaking in the UAE",
     metaDescription:
       "Brand films, commercials, product videos, corporate shoots, event coverage and reels, produced by TCE for brands in Dubai, Abu Dhabi and across the UAE.",
     serviceType: "Video production",

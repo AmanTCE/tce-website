@@ -1,6 +1,7 @@
 import { site, formatWhatsapp } from "@/content/site";
 import { servicePages } from "@/content/servicePages";
 import { areas } from "@/content/areas";
+import { dubaiPages } from "@/content/dubai";
 import { faqs } from "@/content/faq";
 import { films } from "@/content/films";
 import { profile } from "@/content/copy";
@@ -34,6 +35,9 @@ export function GET() {
     "",
     "## Services",
     ...servicePages.map((s) => `- [${s.name}](${absoluteUrl(`/services/${s.slug}`)}): ${s.summary} Also known as: ${s.alsoKnownAs.join(", ")}.`),
+    "",
+    "## In Dubai (where TCE is based)",
+    ...dubaiPages.map((p) => `- [${p.h1}](${absoluteUrl(`/dubai/${p.slug}`)}): ${p.metaDescription}`),
     "",
     "## Areas served",
     ...areas.map((a) => `- [${a.name}](${absoluteUrl(`/uae/${a.slug}`)}): ${a.industries}`),

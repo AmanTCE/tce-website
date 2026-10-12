@@ -21,7 +21,7 @@ export const areas: Area[] = [
   {
     slug: "dubai",
     name: "Dubai",
-    metaTitle: "Video Production & Digital Marketing Agency in Dubai",
+    metaTitle: "TCE in Dubai: Video, Social Media & Marketing Services",
     metaDescription:
       "TCE produces brand films and runs social media, Meta ads, UGC and SEO for businesses in Dubai, from Downtown and Business Bay to Dubai Marina and Jumeirah.",
     intro: [

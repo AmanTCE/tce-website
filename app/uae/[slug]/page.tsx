@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import { ArrowRight, ArrowUpRight } from "@/components/Arrow";
 import { areas, getArea } from "@/content/areas";
 import { servicePages } from "@/content/servicePages";
+import { dubaiPages } from "@/content/dubai";
 import { pageMetadata } from "@/lib/seo";
 import { breadcrumbs, faqPage, graph, orgId, webPage } from "@/lib/schema";
 
@@ -68,6 +69,17 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
               See our work <ArrowRight />
             </SmartLink>
           </div>
+          {a.slug === "dubai" && (
+            <ul className="fade-up mt-10 flex flex-wrap gap-2" style={d(600)}>
+              {dubaiPages.map((p) => (
+                <li key={p.slug}>
+                  <SmartLink href={`/dubai/${p.slug}`} className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-ink/20 px-5 text-[0.95rem] transition-colors hover:border-ink hover:bg-ink hover:text-white">
+                    {p.h1} <ArrowRight />
+                  </SmartLink>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 

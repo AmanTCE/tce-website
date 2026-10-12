@@ -23,18 +23,19 @@ import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { areas } from "@/content/areas";
 import { servicePages } from "@/content/servicePages";
+import { dubaiPages } from "@/content/dubai";
 import { faqs } from "@/content/faq";
 import { faqPage, graph, webPage } from "@/lib/schema";
 
 const homeFaqs = faqs.filter((f) => f.home);
 
-const homeTitle = "Video Production & Digital Marketing Agency in the UAE";
+const homeTitle = "Video Production & Digital Marketing Agency in Dubai, UAE";
 const homeDescription =
-  "UAE video production and digital marketing agency: brand films, social media, Meta ads, UGC, content strategy and SEO in Dubai, Abu Dhabi and all emirates.";
+  "Dubai video production and digital marketing agency: brand films, social media management, Meta ads, UGC, content strategy and SEO across all seven emirates.";
 
 export const metadata: Metadata = {
   ...pageMetadata({ title: homeTitle, description: homeDescription, path: "/" }),
-  title: { absolute: "The Creative Economy: Video Production & Marketing Agency UAE" },
+  title: { absolute: "Video Production & Digital Marketing Agency in Dubai | TCE" },
 };
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as React.CSSProperties;
@@ -68,7 +69,7 @@ export default function HomePage() {
 
         <div className="wrap relative z-[2] flex flex-1 flex-col justify-end pb-10 pt-[calc(var(--header-h)+3rem)] md:pb-14">
           <h1 className="label fade-up mb-8 text-white/80" style={d(200)}>
-            Video production & digital marketing agency in the UAE
+            Video production & digital marketing agency in Dubai, UAE
           </h1>
           <Headline as="p" size="xl" lines={home.hero.headline} onLoad delay={150} />
           <div className="mt-10 grid items-end gap-10 md:mt-14 lg:grid-cols-12 lg:gap-8">
@@ -273,7 +274,16 @@ export default function HomePage() {
             <h2 id="uae-title" className="display display-md reveal mt-8">
               Working in all seven emirates.
             </h2>
-            <p className="reveal mt-6 max-w-md text-charcoal">From Dubai and Abu Dhabi to Fujairah on the east coast, we shoot on location and run campaigns wherever your customers are.</p>
+            <p className="reveal mt-6 max-w-md text-charcoal">Based in Dubai. From Dubai and Abu Dhabi to Fujairah on the east coast, we shoot on location and run campaigns wherever your customers are.</p>
+            <ul className="reveal mt-8 flex flex-wrap gap-2">
+              {dubaiPages.map((p) => (
+                <li key={p.slug}>
+                  <SmartLink href={`/dubai/${p.slug}`} className="inline-flex min-h-[44px] items-center rounded-full border border-ink/20 px-5 text-[0.95rem] transition-colors hover:border-ink hover:bg-ink hover:text-white">
+                    {p.name}
+                  </SmartLink>
+                </li>
+              ))}
+            </ul>
           </div>
           <ul className="grid content-start gap-x-8 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
             {areas.map((a) => (

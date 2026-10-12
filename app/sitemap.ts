@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { publishedProjects } from "@/content/projects";
 import { servicePages } from "@/content/servicePages";
 import { areas } from "@/content/areas";
+import { dubaiPages } from "@/content/dubai";
 import { absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/", 1, "weekly"),
     entry("/services", 0.9),
     ...servicePages.map((s) => entry(`/services/${s.slug}`, 0.9)),
+    ...dubaiPages.map((p) => entry(`/dubai/${p.slug}`, 0.9)),
     entry("/work", 0.8, "weekly"),
     entry("/uae", 0.8),
     ...areas.map((a) => entry(`/uae/${a.slug}`, 0.8)),

@@ -13,7 +13,7 @@ import { asset } from "@/lib/paths";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `Video Production & Digital Marketing Agency in the UAE | ${site.name}`,
+    default: `Video Production & Digital Marketing Agency in Dubai | ${site.name}`,
     template: `%s | ${site.shortName}`,
   },
   description: site.description,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: site.locale,
     type: "website",
-    images: [{ url: "/media/og.jpg", width: 1200, height: 630, alt: "The Creative Economy, video production and digital marketing agency in the UAE" }],
+    images: [{ url: "/media/og.jpg", width: 1200, height: 630, alt: "The Creative Economy, video production and digital marketing agency in Dubai, UAE" }],
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-video-preview": -1, "max-snippet": -1 } },

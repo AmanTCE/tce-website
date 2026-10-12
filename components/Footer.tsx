@@ -6,6 +6,7 @@ import CookieSettingsButton from "./CookieSettingsButton";
 import { site, socialLabels, formatWhatsapp, type SiteSocialKey } from "@/content/site";
 import { servicePages } from "@/content/servicePages";
 import { areas } from "@/content/areas";
+import { dubaiPages } from "@/content/dubai";
 
 export default function Footer() {
   const socials = (Object.keys(site.social) as SiteSocialKey[]).filter((k) => site.social[k]);
@@ -88,9 +89,19 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Every emirate, linked */}
+      {/* Dubai landing pages, then every emirate */}
       <nav aria-label="Areas we serve" className="wrap pb-12">
         <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-8 text-[0.95rem] text-white/70">
+          <li className="mono text-xs uppercase text-white/50">In Dubai</li>
+          {dubaiPages.map((p) => (
+            <li key={p.slug}>
+              <SmartLink href={`/dubai/${p.slug}`} className="inline-flex min-h-[32px] items-center transition-colors hover:text-sky">
+                {p.name.replace(/ in Dubai$/, "")}
+              </SmartLink>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.95rem] text-white/70">
           <li className="mono text-xs uppercase text-white/50">
             <SmartLink href="/uae" className="transition-colors hover:text-sky">
               Across the UAE
