@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import Analytics from "@/components/Analytics";
 import { site } from "@/content/site";
 import { graph, organization, website } from "@/lib/schema";
+import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -55,6 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <RevealObserver />
         <JsonLd data={graph(organization(), website())} />
         <Analytics />
+        {/* TCE chat assistant (public/tce-chatbot.js): scripted answers, runs in the browser, on every page */}
+        <Script src={asset("/tce-chatbot.js")} strategy="lazyOnload" />
         {plausible && <Script defer data-domain={plausible} src="https://plausible.io/js/script.js" strategy="afterInteractive" />}
       </body>
     </html>

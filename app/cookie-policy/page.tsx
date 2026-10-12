@@ -38,6 +38,12 @@ export default function CookiePolicy() {
                   <td>Until you clear it</td>
                 </tr>
                 <tr>
+                  <td>tce-chat-lang</td>
+                  <td>TCE (local storage)</td>
+                  <td>Remembers whether you chose English or Arabic in the chat assistant.</td>
+                  <td>Until you clear it</td>
+                </tr>
+                <tr>
                   <td>_ga</td>
                   <td>Google Analytics</td>
                   <td>Distinguishes visitors so we can count them. Only after you accept.</td>
