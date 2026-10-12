@@ -5,6 +5,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # The site is a static export, so Netlify's Next.js server runtime isn't needed.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Long cache for fingerprinted scripts, styles and fonts; a day for media.
 [[headers]]
