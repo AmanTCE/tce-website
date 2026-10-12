@@ -59,6 +59,7 @@ export default function PrivacyPolicy() {
         <li>Email (Gmail, operated by Google), where enquiries sent by email arrive.</li>
         <li>Messaging (WhatsApp, operated by Meta), when you choose to contact us there.</li>
         {analytics && <li>Website analytics (Google Analytics, operated by Google).</li>}
+        <li>Fonts for the chat assistant (Google Fonts, operated by Google), which receives your IP address when the fonts load.</li>
         <li>Professional advisers, or authorities where the law requires it.</li>
       </ul>
       <p>Some of these providers process data outside the UAE. Where they do, we rely on them to protect it to the standard the PDPL requires.</p>
