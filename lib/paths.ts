@@ -6,7 +6,7 @@
 export const isPreview = process.env.NEXT_PUBLIC_PREVIEW === "1";
 /** A static export published for real visitors (e.g. on Wix): no server, but no preview notes either. */
 export const isPublicStatic = process.env.NEXT_PUBLIC_STATIC_PUBLIC === "1";
-/** On Netlify the enquiry form posts to Netlify Forms, which stores it and emails TCE. */
+/** On Netlify the enquiry form posts to Netlify Forms (a stored copy) and Web3Forms (the email to TCE). */
 export const netlifyForms = process.env.NEXT_PUBLIC_FORM_BACKEND === "netlify";
 /** Notes for TCE about missing content, shown only in the design preview. */
 export const showPendingNotes = isPreview && !isPublicStatic;

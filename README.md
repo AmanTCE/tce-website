@@ -33,7 +33,7 @@ The live site (www.tcespace.com) is built by Netlify from this GitHub repository
 2. **Forms:** under Site configuration → Forms, enable form detection, then add an email notification for the `enquiry` form to the inbox that should receive enquiries.
 3. **Domain:** Domain management → add `www.tcespace.com` and follow Netlify's DNS steps at your domain registrar. Netlify issues the HTTPS certificate automatically.
 
-On Netlify the enquiry form posts to Netlify Forms (see `public/__forms.html`): Netlify stores each enquiry, filters spam and emails it.
+On Netlify the enquiry form posts to Netlify Forms (see `public/__forms.html`), which stores each enquiry and filters spam. Netlify's form emails are a paid feature, so the form also posts to [Web3Forms](https://web3forms.com) (free), which emails each enquiry to TCE. Its access key is `site.forms.web3formsKey` in `content/site.ts` (or the `NEXT_PUBLIC_WEB3FORMS_KEY` environment variable); without it, enquiries are only stored in Netlify.
 
 ## Contact form (server hosting)
 

@@ -51,6 +51,16 @@ export const site = {
     bingSiteVerification: null as string | null,
   },
 
+  /**
+   * Enquiry emails on Netlify. Netlify Forms keeps a copy of every enquiry, but
+   * its email alerts are a paid feature, so the form also sends each enquiry to
+   * Web3Forms (free), which emails it to TCE. The access key is public by design:
+   * it can only send to the inbox it was created for.
+   */
+  forms: {
+    web3formsKey: (process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "006a0546-2ff8-4872-b888-1a204619b3f1") as string | null,
+  },
+
   /** Every emirate TCE works in. Each has its own page under /uae. */
   emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Umm Al Quwain", "Ras Al Khaimah", "Fujairah"],
 

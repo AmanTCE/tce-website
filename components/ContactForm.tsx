@@ -97,14 +97,39 @@ export default function ContactForm() {
     try {
       if (isPreview) throw new Error("preview");
       if (netlifyForms) {
-        // Netlify Forms: matches the hidden form in public/__forms.html. Netlify stores the
-        // enquiry, filters spam (the "website" honeypot) and emails it to TCE.
-        const res = await fetch("/__forms.html", {
+        // Netlify Forms (matches the hidden form in public/__forms.html) keeps a copy and
+        // filters spam with the "website" honeypot. Web3Forms, when its key is set, emails
+        // the enquiry to TCE. Either one accepting it means TCE has received the message.
+        const toNetlify = fetch("/__forms.html", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({ "form-name": "enquiry", ...values, website }).toString(),
-        });
-        if (!res.ok) throw new Error(`netlify ${res.status}`);
+        }).then((r) => r.ok, () => false);
+        const key = site.forms.web3formsKey;
+        const toEmail = key
+          ? fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+              body: JSON.stringify({
+                access_key: key,
+                subject: `New enquiry from the TCE website: ${values.name}`,
+                from_name: "TCE website",
+                name: values.name,
+                email: values.email,
+                company: values.company,
+                phone: values.phone,
+                service: values.service,
+                budget: values.budget,
+                message: values.message,
+                botcheck: website,
+              }),
+            }).then(
+              (r) => r.json().then((j) => r.ok && j.success === true, () => false),
+              () => false,
+            )
+          : Promise.resolve(false);
+        const [stored, emailed] = await Promise.all([toNetlify, toEmail]);
+        if (!stored && !emailed) throw new Error("form not delivered");
         track("generate_lead", { method: "form", service: values.service });
         setStatus({ kind: "sent" });
         setValues(empty);

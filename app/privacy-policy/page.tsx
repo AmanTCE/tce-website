@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
       <p>The enquiry form asks for your name, company or brand, email address, phone or WhatsApp number, the service you’re interested in, an optional budget range and a description of your project.</p>
       <p>
         {netlifyForms
-          ? "When you send the form, your enquiry is stored by our website host, Netlify, and emailed to our team."
+          ? "When you send the form, your enquiry is stored by our website host, Netlify, and emailed to our team through Web3Forms, a form delivery service."
           : "On this website the form doesn’t send anything itself: it opens your own email app or WhatsApp with your details filled in, and nothing reaches us until you press send there. Email and WhatsApp (operated by Meta) handle your message under their own privacy policies."}{" "}
         If you message or email us directly, we receive what you choose to send.
       </p>
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
       <h2>5. Who we share it with</h2>
       <p>We share personal data only with service providers that help us run the website and our business, and only as far as they need it:</p>
       <ul>
-        <li>Website hosting{netlifyForms ? " and form handling (Netlify)" : ""}.</li>
+        <li>Website hosting{netlifyForms ? " and form handling (Netlify and Web3Forms)" : ""}.</li>
         <li>Email (Gmail, operated by Google), where enquiries sent by email arrive.</li>
         <li>Messaging (WhatsApp, operated by Meta), when you choose to contact us there.</li>
         {analytics && <li>Website analytics (Google Analytics, operated by Google).</li>}
