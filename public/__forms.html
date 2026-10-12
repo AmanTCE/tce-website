@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Enquiry form</title>
+  </head>
+  <body>
+    <!--
+      Netlify Forms reads this file at deploy time to register the "enquiry" form.
+      Visitors never see it: the contact page posts here in the background.
+      Keep the field names in step with lib/contact.ts.
+    -->
+    <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="service" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+      <input type="text" name="website" />
+    </form>
+  </body>
+</html>

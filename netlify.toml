@@ -1,0 +1,38 @@
+# Netlify: build the static site and publish ./out.
+[build]
+  command = "npm run build:netlify"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Long cache for fingerprinted scripts, styles and fonts; a day for media.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/brand/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# The old flat addresses from the preview and Wix builds point to the clean ones.
+[[redirects]]
+  from = "/home.html"
+  to = "/"
+  status = 301

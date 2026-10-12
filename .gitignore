@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+preview
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+wix-site/
+.api-aside
