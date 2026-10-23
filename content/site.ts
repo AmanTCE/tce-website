@@ -46,7 +46,7 @@ export const site = {
    * verification meta tags from Google Search Console and Bing Webmaster Tools.
    */
   analytics: {
-    ga4: (process.env.NEXT_PUBLIC_GA4_ID || "G-BMC76S9063") as string | null,
+    ga4: (process.env.NEXT_PUBLIC_GA4_ID || "G-N6X597X8Q2") as string | null,
     googleSiteVerification: null as string | null,
     bingSiteVerification: null as string | null,
   },
