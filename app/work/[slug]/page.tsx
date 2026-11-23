@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: p.summary ?? `${p.title}: ${categoryLabel(p.category).toLowerCase()} photography${p.client ? ` for ${p.client}` : ""} by The Creative Economy, a video production and creative media agency in the UAE.`,
       path: `/work/${p.slug}`,
     }),
+    // One photo and no write-up yet, so these stay out of search results (links are still followed).
+    // Remove this once a project has a real summary, scope and results, and add it back to the sitemap.
+    ...(p.summary ? {} : { robots: { index: false, follow: true } }),
     openGraph: { images: [{ url: p.cover.src, width: p.cover.width, height: p.cover.height, alt: p.cover.alt }] },
   };
 }

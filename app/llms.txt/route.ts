@@ -4,6 +4,7 @@ import { areas } from "@/content/areas";
 import { dubaiPages } from "@/content/dubai";
 import { faqs } from "@/content/faq";
 import { films } from "@/content/films";
+import { posts, plain } from "@/content/blog";
 import { profile } from "@/content/copy";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -46,6 +47,10 @@ export function GET() {
     ...films.map((f) => `- ${f.title}${f.subtitle ? ` (${f.subtitle})` : ""}: ${f.group}`),
     `- More work: ${absoluteUrl("/work")}`,
     "",
+    "## Guides (blog)",
+    ...posts.map((p) => `- [${p.title}](${absoluteUrl(`/blog/${p.slug}`)}): ${plain(p.shortAnswer)}`),
+    `- All guides: ${absoluteUrl("/blog")}`,
+    "",
     "## Frequently asked questions",
     ...faqs.flatMap((f) => [`### ${f.q}`, f.a, ""]),
     "## Pages",
@@ -53,6 +58,7 @@ export function GET() {
     `- [Services](${absoluteUrl("/services")})`,
     `- [Our work](${absoluteUrl("/work")})`,
     `- [FAQ](${absoluteUrl("/faq")})`,
+    `- [Blog](${absoluteUrl("/blog")})`,
     `- [Contact](${absoluteUrl("/contact")})`,
     "",
   ];

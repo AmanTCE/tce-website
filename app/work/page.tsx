@@ -8,7 +8,7 @@ import { workPage, profile } from "@/content/copy";
 import { activeCategories, publishedProjects } from "@/content/projects";
 import { pageMetadata, absoluteUrl } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
-import { films } from "@/content/films";
+import { films, filmsPublished } from "@/content/films";
 import { breadcrumbs, graph, orgId, webPage } from "@/lib/schema";
 
 // Each film as a VideoObject, so search engines can list them as videos.
@@ -19,6 +19,7 @@ const videos = films
     name: `${f.title}${f.subtitle ? `, ${f.subtitle}` : ""} | ${f.group} film by The Creative Economy`,
     description: `${f.group} film produced by The Creative Economy (TCE) for ${f.title}${f.subtitle ? ` ${f.subtitle}` : ""}.`,
     thumbnailUrl: absoluteUrl(f.poster!),
+    uploadDate: f.uploadDate ?? filmsPublished,
     contentUrl: absoluteUrl(f.video!),
     creator: { "@id": orgId },
     publisher: { "@id": orgId },

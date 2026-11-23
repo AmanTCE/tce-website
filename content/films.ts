@@ -22,7 +22,12 @@ export type Film = {
   span?: "half" | "full";
   /** Portrait (9:16) films get a narrower player. */
   vertical?: boolean;
+  /** Date the film was first published on this site (ISO). Search engines need it for video results. */
+  uploadDate?: string;
 };
+
+/** When the films first went live on tcespace.com. */
+export const filmsPublished = "2026-10-12";
 
 export const films: Film[] = [
   { slug: "hotpack", title: "Hotpack", group: "Brand Content", driveId: "1KkpSO-pch3mxOi0fQ1TCR5p0BY8SsDkx", video: "/media/video/hotpack.mp4", poster: "/media/video/hotpack-poster.webp", logo: { src: "/brand/clients/hotpack.png", width: 359, height: 85 } },

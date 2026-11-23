@@ -12,7 +12,7 @@ export function pageMetadata({ title, description, path, image }: PageMeta): Met
   return {
     title,
     description,
-    alternates: { canonical: routePath(path) },
+    alternates: { canonical: routePath(path), types: { "application/rss+xml": [{ url: "/blog/rss.xml", title: `${site.name} blog` }] } },
     openGraph: { title: `${title} | ${site.shortName}`, description, url: routePath(path), type: "website", siteName: site.name, locale: site.locale, images },
     twitter: { card: "summary_large_image", title: `${title} | ${site.shortName}`, description, images: images.map((i) => i.url) },
   };

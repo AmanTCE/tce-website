@@ -109,3 +109,26 @@ export function faqPage(faqs: { q: string; a: string }[]): Json {
 
 /** Wraps nodes into one JSON-LD document. */
 export const graph = (...nodes: Json[]) => ({ "@context": "https://schema.org", "@graph": nodes });
+
+/** A blog post. Author and publisher are TCE itself; dates and image come from content/blog.ts. */
+export function blogPosting(p: { slug: string; title: string; description: string; published: string; updated: string; category: string; image: { src: string; width: number; height: number }; services: string[]; words: number }): Json {
+  const url = absoluteUrl(`/blog/${p.slug}`);
+  return {
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: p.title,
+    description: p.description,
+    url,
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+    datePublished: p.published,
+    dateModified: p.updated,
+    articleSection: p.category,
+    wordCount: p.words,
+    inLanguage: "en-AE",
+    image: { "@type": "ImageObject", url: absoluteUrl(p.image.src), width: p.image.width, height: p.image.height },
+    author: { "@id": orgId },
+    publisher: { "@id": orgId },
+    isPartOf: { "@id": `${absoluteUrl("/blog")}#blog` },
+    about: p.services.map((s) => ({ "@id": `${absoluteUrl(`/services/${s}`)}#service` })),
+  };
+}
