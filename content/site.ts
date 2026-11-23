@@ -61,6 +61,13 @@ export const site = {
     web3formsKey: (process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "006a0546-2ff8-4872-b888-1a204619b3f1") as string | null,
   },
 
+  /**
+   * Date the site's pages last changed in a meaningful way (ISO). The sitemap
+   * reports it as lastmod, so search engines see real change dates instead of
+   * the build time. Update it when page content changes.
+   */
+  contentUpdated: "2026-11-23",
+
   /** Every emirate TCE works in. Each has its own page under /uae. */
   emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Umm Al Quwain", "Ras Al Khaimah", "Fujairah"],
 
@@ -118,6 +125,7 @@ export const site = {
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Our Work", href: "/work" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
 };

@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     ...(site.analytics.googleSiteVerification ? { google: site.analytics.googleSiteVerification } : {}),
     ...(site.analytics.bingSiteVerification ? { other: { "msvalidate.01": site.analytics.bingSiteVerification } } : {}),
   },
+  alternates: { types: { "application/rss+xml": [{ url: "/blog/rss.xml", title: `${site.name} blog` }] } },
   other: { "geo.region": "AE", "geo.placename": "United Arab Emirates" },
 };
 
